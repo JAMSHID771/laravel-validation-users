@@ -1,62 +1,66 @@
 <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    
-    <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
+  
     @error('name')
-        <div class="error">{{ $message }}</div>
+      {{ $message }}
     @enderror
-    
-    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+    <input type="text" name="name" placeholder="Ism">
+    <br>
+  
     @error('email')
-        <div class="error">{{ $message }}</div>
+      {{ $message }}
     @enderror
-    
-    <input type="text" name="age" placeholder="Age" value="{{ old('age') }}">
+    <input type="email" name="email" placeholder="Email">
+    <br>
+  
     @error('age')
-        <div class="error">{{ $message }}</div>
+      {{ $message }}
     @enderror
-    
-    <input type="password" name="password" placeholder="Password">
-    @error('password')
-        <div class="error">{{ $message }}</div>
+    <input type="number" name="age" placeholder="Yosh">
+    <br>
+  
+    @error('product')
+      {{ $message }}
     @enderror
-    
-    <input type="password" name="password_confirmation" placeholder="Confirm Password">
-    
-    <input type="file" name="avatar" accept="image/*">
-    @error('avatar')
-        <div class="error">{{ $message }}</div>
+    <label for="product">Mahsulot nomi:</label>
+    <input type="text" name="product" placeholder="Mahsulot">
+    <br>
+  
+    <label for="date">Sana:</label>
+    <input type="date" name="date" placeholder="Sana">
+    @error('date')
+      {{ $message }}
     @enderror
-    
-    <input type="text" name="product_name" placeholder="Product Name" value="{{ old('product_name') }}">
-    @error('product_name')
-        <div class="error">{{ $message }}</div>
-    @enderror
-    
-    <input type="number" name="price" placeholder="Price" value="{{ old('price') }}">
-    @error('price')
-        <div class="error">{{ $message }}</div>
-    @enderror
-    
-    <input type="url" name="website" placeholder="Website" value="{{ old('website') }}">
-    @error('website')
-        <div class="error">{{ $message }}</div>
-    @enderror
-    
-    <input type="date" name="published_at" value="{{ old('published_at') }}">
-    @error('published_at')
-        <div class="error">{{ $message }}</div>
-    @enderror
-    
-    <input type="date" name="start_date" value="{{ old('start_date') }}">
-    @error('start_date')
-        <div class="error">{{ $message }}</div>
-    @enderror
-    
-    <input type="date" name="end_date" value="{{ old('end_date') }}">
-    @error('end_date')
-        <div class="error">{{ $message }}</div>
-    @enderror
+    <br>
+  
+    <div>
+      <label for="password">Parol:</label>
+      <input type="password" name="password">
+      @error('password')
+        {{ $message }}
+      @enderror
+    </div>
+  
+    <div>
+      <label for="password_confirmation">Parolni qayta kiriting:</label>
+      <input type="password" name="password_confirmation">
+    </div>
+  
+    <div>
+      <label for="website">Veb-sahifa URL:</label>
+      <input type="text" name="website">
+      @error('website')
+        {{ $message }}
+      @enderror
+    </div>
+  
+    <div>
+      <label for="profile_image">Profil rasmi:</label>
+      <input type="file" name="profile_image" accept="image/jpeg, image/png, image/jpg">
+      @error('profile_image')
+        {{ $message }}
+      @enderror
+    </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Yuborish</button>
 </form>
